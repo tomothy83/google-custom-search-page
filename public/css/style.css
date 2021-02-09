@@ -1,3 +1,12 @@
+body, button {
+  font-family: "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro",
+    "Helvetica Neue",
+    Arial,
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+}
+
 div.app-content {
   display: flex;
 }
