@@ -2,8 +2,12 @@
   "name": "google-custom-search-page",
   "version": "1.0.0",
   "description": "Google Custom Search Engine page.",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
+    "dev": "run-p watch serve",
+    "serve": "node main.js",
+    "build": "ejs src/index.ejs -o public/index.html",
+    "watch": "chokidar src -c \"npm run build\" --initial",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/tomothy83/google-custom-search-page/issues"
   },
-  "homepage": "https://github.com/tomothy83/google-custom-search-page#readme"
+  "homepage": "https://github.com/tomothy83/google-custom-search-page#readme",
+  "devDependencies": {
+    "chokidar-cli": "^2.1.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "npm-run-all": "^4.1.5"
+  }
 }
