@@ -1,0 +1,8 @@
+div.add-btn-area {
+  text-align: right;
+  clear: both;
+}
+
+button.add-to-dt {
+  cursor: pointer;
+}

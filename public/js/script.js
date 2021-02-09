@@ -1,6 +1,13 @@
 $(document).ready(function () {
+
+  const $addBtn = $('<button class="add-to-dt">Add</button>');
+  const $addButtonArea = $('<div class="add-btn-area"></div>');
+  $addButtonArea.append($addBtn);
+
   myWebResultsRenderedCallback = function(){
-    $('a.gs-title').css('color', 'red');
+    $('.gsc-webResult').each(function(i, e) {
+      $(e).append($addButtonArea.clone());
+    });
   };
 
   window.__gcse || (window.__gcse = {});
