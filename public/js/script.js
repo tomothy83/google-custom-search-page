@@ -1,30 +1,30 @@
+const $addBtn = $('<button class="add-to-dt">Add</button>');
+const $addButtonArea = $('<div class="add-btn-area"></div>');
+$addButtonArea.append($addBtn);
+const $added = $('<span class="added" style="display:none"><i class="material-icons">check_circle_outline</i> Added</span>');
+$addButtonArea.append($added);
+let searchQuery = '';
+
+const myWebResultsRenderedCallback = function() {
+  $('.gsc-webResult').each(function(i, e) {
+    $(e).append($addButtonArea.clone());
+  });
+};
+
+const mySearchStartingCallback = function(gname, query) {
+  searchQuery = query;
+  return query;
+};
+
+window.__gcse || (window.__gcse = {});
+window.__gcse.searchCallbacks = {
+  web: {
+    starting: mySearchStartingCallback,
+    rendered: myWebResultsRenderedCallback
+  },
+};
+
 $(document).ready(function () {
-
-  const $addBtn = $('<button class="add-to-dt">Add</button>');
-  const $addButtonArea = $('<div class="add-btn-area"></div>');
-  $addButtonArea.append($addBtn);
-  const $added = $('<span class="added" style="display:none"><i class="material-icons">check_circle_outline</i> Added</span>');
-  $addButtonArea.append($added);
-  let searchQuery = '';
-
-  const myWebResultsRenderedCallback = function() {
-    $('.gsc-webResult').each(function(i, e) {
-      $(e).append($addButtonArea.clone());
-    });
-  };
-
-  const mySearchStartingCallback = function(gname, query) {
-    searchQuery = query;
-    return query;
-  };
-
-  window.__gcse || (window.__gcse = {});
-  window.__gcse.searchCallbacks = {
-    web: {
-      starting: mySearchStartingCallback,
-      rendered: myWebResultsRenderedCallback
-    },
-  };
 
   const dTable = $('#dtable').DataTable({
     data: [],
