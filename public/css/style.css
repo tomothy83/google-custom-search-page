@@ -18,3 +18,11 @@ div.add-btn-area {
 button.add-to-dt {
   cursor: pointer;
 }
+
+div.add-btn-area .added {
+  color: blue;
+}
+
+.added i.material-icons {
+  font-size: 15px;
+}

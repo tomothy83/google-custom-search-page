@@ -3,7 +3,8 @@ $(document).ready(function () {
   const $addBtn = $('<button class="add-to-dt">Add</button>');
   const $addButtonArea = $('<div class="add-btn-area"></div>');
   $addButtonArea.append($addBtn);
-
+  const $added = $('<span class="added" style="display:none"><i class="material-icons">check_circle_outline</i> Added</span>');
+  $addButtonArea.append($added);
   let searchQuery = '';
 
   const myWebResultsRenderedCallback = function(){
@@ -97,6 +98,8 @@ $(document).ready(function () {
       added_at: new Date()
     });
     dTable.columns.adjust().draw();
+    $(this).hide();
+    $result.find('.added').show();
   });
 
 });
