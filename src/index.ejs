@@ -3,7 +3,7 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Custom Search</title>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/jszip-2.5.0/dt-1.10.23/b-1.6.5/b-flash-1.6.5/b-html5-1.6.5/datatables.min.css"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,21 +14,25 @@
 </head>
 
 <body>
-  <div class="gcse-search"></div>
-  <div class="gcse-searchresults"></div>
-  <div class="dtable-area">
-    <table id="dtable" class="compact cell-border">
-      <thead>
-        <tr>
-          <th>Query</th>
-          <th>Title</th>
-          <th>URL</th>
-          <th>Breadcrumbs</th>
-          <th>Article Date</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+  <div class="app-content">
+    <div class="search-area">
+      <div class="gcse-search"></div>
+      <div class="gcse-searchresults"></div>
+    </div>
+    <div class="dtable-area">
+      <table id="dtable" class="compact cell-border">
+        <thead>
+          <tr>
+            <th>Query</th>
+            <th>Title</th>
+            <th>URL</th>
+            <th>Breadcrumbs</th>
+            <th>Article Date</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </div>
 </body>
 
