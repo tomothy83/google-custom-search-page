@@ -7,7 +7,7 @@ $(document).ready(function () {
   $addButtonArea.append($added);
   let searchQuery = '';
 
-  const myWebResultsRenderedCallback = function(){
+  const myWebResultsRenderedCallback = function() {
     $('.gsc-webResult').each(function(i, e) {
       $(e).append($addButtonArea.clone());
     });
@@ -30,6 +30,32 @@ $(document).ready(function () {
     data: [],
     processing: true,
     deferRender: true,
+    dom: 'Bfrtip',
+    buttons: [
+      {
+        extend: 'excelHtml5',
+        title: null,
+        filename: function () {
+          const date = new Date();
+          const year = date.getFullYear();
+          const month = ("0" + (date.getMonth() + 1)).slice(-2);
+          const day = ("0" + date.getDate()).slice(-2);
+          const hour = ("0" + date.getHours()).slice(-2);
+          const minut = ("0" + date.getMinutes()).slice(-2);
+          const second = ("0" + date.getSeconds()).slice(-2);
+          return 'CustomSearch_' + year + month + day + '-' + hour + minut + second;
+        },
+        messageTop: null,
+        exportOptions: {
+          orthogonal: 'filter',
+          modifier: {
+            page: 'all'
+          }
+        },
+        customizeData: function(data) {
+        }
+      },
+    ],
     columns: [
       {
         data: 'query'
@@ -68,14 +94,17 @@ $(document).ready(function () {
         }
       },
       {
+        title: "Article Date",
         data: 'article_date',
         visible: false
       },
       {
+        title: "Snippet",
         data: 'snippet',
         visible: false
       },
       {
+        title: "Added at",
         data: 'added_at',
         visible: false
       }
@@ -95,7 +124,7 @@ $(document).ready(function () {
       breadcrumbs: breadcrumbs,
       article_date: null,
       snippet: snippet,
-      added_at: new Date()
+      added_at: (new Date()).toLocaleString()
     });
     dTable.columns.adjust().draw();
     $(this).hide();
